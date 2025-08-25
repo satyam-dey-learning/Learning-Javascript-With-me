@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM learning</title>
+    <style>
+        body {
+            background-color: black;
+            color: whitesmoke;
+        }
+
+        /* .bg-black{
+            background-color: black;
+            color: whitesmoke;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="bg-black">
+        <h1 id="title" class="heading">DOM learning - Satyam Dey <span style="display: none">Hi I am Satyam Dey</span>
+        </h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h3>Lorem ipsum dolor sit amet.</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est eius autem delectus praesentium atque
+            asperiores. </p>
+        <input type="password" name="" id="">
+        <ul>
+            <li class="item">one</li>
+            <li class="item">two</li>
+            <li class="item">three</li>
+            <li class="item">four</li>
+            <li class="item">five</li>
+        </ul>
+
+    </div>
+</body>
+<script>
+    // innerText: Select only the viewed Text from the content
+    // textContent: Select the full text present in the content
+    // title.textContent
+    // 'DOM learning - Satyam Dey Hi I am Satyam Dey'
+    // title.innerText
+    // 'DOM learning - Satyam Dey'
+    // title.innerHTML
+    // 'DOM learning - Satyam Dey <span style="display: none">Hi I am Satyam Dey</span>'
+
+
+    // document.querySelector('h1')
+    //     <h1 id="title" class="heading">​…​</h1>​"DOM learning - Satyam Dey " < span style = "display:​ none" > Hi I am Satyam Dey​</span >​</h1 >
+    // document.querySelector('#title')
+    //     < h1 id = "title" class=​"heading" >​…​</h1 >
+    // document.querySelector('.heading')
+    //         < h1 id = "title" class=​"heading" >​…​</h1 >
+
+    // const tempList = document.querySelectorAll('li')
+    // take all as NodeList like an array but not same as array
+
+    // tempList ↓
+    // NodeList(3)[li, li, li]
+    // tempList[2].style.color = "yellow"
+
+    // tempList.forEach(function (l) {
+    // l.style.backgroundColor = 'green'
+    // })
+
+    // const tempClassList = document.getElementsByClassName('item')
+    
+    // tempClassList
+    // HTMLCollection(5)[li.item, li.item, li.item, li.item, li.item]
+
+    // Array.from(tempClassList)
+    //     (5)[li.item, li.item, li.item, li.item, li.item]
+
+    // const convertedArray = Array.from(tempClassList)
+    // convertedArray.forEach(function (li) {
+    //     li.style.color = 'orange'
+    // })
+
+</script>
+
+</html>
