@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Part 2</title>
+</head>
+
+<body>
+    <h1>Async Javascript</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const satyam = function(){
+        console.log("Satyam");
+    }
+    const change = function () {
+        document.querySelector('h1').innerHTML = "Satyam is not a good boy"
+    }
+    // setTimeout(satyam,2000)
+    const changeMe = setTimeout(change,2000)
+
+    // clearTimeout(changeMe)       // it is not good bcz there is no event to do this 
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)      // to stop the event in the setTimeout
+        console.log("Stopped");
+        
+    })
+</script>
+
+</html>

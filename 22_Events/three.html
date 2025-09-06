@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Part - 3</title>
+</head>
+<body>
+    <h1>Javascript and Events</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+    
+    let intervalId
+
+    document.querySelector('#start').addEventListener('click',function(){
+        
+        intervalId = setInterval(sayDate,1000,"Bye")
+        
+    })
+
+    // clearInterval(changeMe)       // it is not good bcz there is no event to do this 
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(intervalId)      // to stop the event in the setInterval
+        console.log("Stopped");
+        
+    })
+</script>
+</html>
