@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: white;
+        }
+
+        .card {
+            height: auto;
+            width: fit-content;
+            /* background-color: ghostwhite; */
+            /* color:black; */
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>UNSENT Client has been created. open() not called yet.</li>
+        <li> OPENED open() has been called.</li>
+        <li>HEADERS_RECEIVED send() has been called, and headers and status are available.</li>
+        <li>LOADING Downloading; responseText holds partial data.</li>
+        <li>DONE The operation is complete.</li>
+    </ol>
+    <button id="show">Show Details</button>
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/satyam-dey-learning'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestURL)
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText);
+            // console.log(typeof(data));
+            // When data will come from anywhere, mostly it comes as a string, rarely as an object
+            console.log(data);
+            document.querySelector('#show').addEventListener('click', function () {
+                const card = document.createElement("div");
+                card.className = "card";
+
+                const img = document.createElement("img");
+                img.src = data.avatar_url;
+                img.alt = "Profile Image";
+
+                const name = document.createElement("h3");
+                name.innerText = data.name;
+
+                const follower = document.createElement("p");
+                follower.innerHTML = `Followers: <span id="followers">${data.followers}</span>`;
+
+                card.appendChild(img);
+                card.appendChild(name);
+                card.appendChild(follower);
+
+                document.body.appendChild(card);
+            })
+        }
+    }
+
+    xhr.send()
+</script>
+
+</html>
